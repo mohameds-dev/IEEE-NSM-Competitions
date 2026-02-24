@@ -93,17 +93,18 @@ Tags: `strings`, `bruteforce`
 
 ### Problem F
 
-https://codeforces.com/contest/1676/problem/D
+https://codeforces.com/contest/1676/problem/E
 
-Tags: `implementation`, `matrices`, `bruteforce`
+Tags: `sorting`, `prefix sum`, `binary search`
 
 <details>
 <summary>💡Expand for hints</summary>
 
-- For each cell, you need the sum of values on all four diagonals passing through it
-- You can move along diagonals by changing row and column indices by \(\pm 1\) together
-- A straightforward solution is to, for every cell, walk along its four diagonals and accumulate the sum, keeping the maximum over all cells
+- You are given candies (each with a sugar value) and queries: for each query (sugar amount), find the minimum number of candies to eat so that the total sugar is at least that amount
+- Sort the candies in descending order so that eating fewer candies gives more sugar
+- Build a prefix-sum array over the sorted candies
+- For each query, binary-search (or use `lower_bound`) on the prefix sum to find the smallest index where the sum is ≥ the required sugar; the answer is that index (1-based count) or −1 if impossible
 
 </details>
 
-➡️ [Solution code](1676D.cpp)
+➡️ [Solution code](1676E.cpp)
